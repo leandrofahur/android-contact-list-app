@@ -2,6 +2,7 @@ package com.example.contactlistdemo.dao;
 
 import static androidx.room.OnConflictStrategy.IGNORE;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -39,7 +40,7 @@ public interface ContactDao {
 
     // in the ui there will be a show all btn
     @Query("SELECT * FROM contacts")
-    List<Contact> getAllContacts();
+    LiveData<List<Contact>> getAllContacts();
 
     // in the ui there will be a search btn that will search by name
     @Query("SELECT * FROM contacts WHERE first_name=:firstName")
